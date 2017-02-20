@@ -1,0 +1,16 @@
+# Annotation 
+*.gtf
+*.out
+*.embl
+
+# Sequences
+*.fasta
+*.zip
+
+# Subread gunk
+*.array
+*.files
+*.tab
+*.reads
+*.log
+
