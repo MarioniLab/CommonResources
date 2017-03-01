@@ -10,6 +10,7 @@ Mus_musculus.GRCm38.82.gtf  |	http://ftp.ensembl.org/pub/release-82/gtf/mus_musc
 SIRV_C_150601a  |	https://www.lexogen.com/sirvs/
 cas9_pHR_approx |   manually constructed by examining Cas9-coding domain in https://www.addgene.org/46911/
 repeats/hg38.fa.out |	http://www.repeatmasker.org/species/hg.html
+B.LAN_REFERENCE/*.gtf	|	supplied by Elia Benito-Gutierrez, via the EBI servers (Dec 16, 2016)
 
 # Processing Ensembl annotation
 
@@ -39,4 +40,14 @@ cat original/Homo_sapiens.GRCh38.83.gtf | \
 ```sh
 Rscript original/repeats/rm2gtf.R
 mv original/repeats/repeats_hg38.gtf processed/
+```
+
+# Obtaining ID to name mappings for lancelet genes
+
+```sh
+host=original/B.LAN_REFERENCE/Bla_annot-FINAL_v4_names-phCuff.gtf 
+cat ${host} | cut -f9 | sed -r "s/.*gene_id ([^;]+);.*/\1/" > ids.txt
+cat ${host} | cut -f9 | sed -r "s/.*gene_name ([^;]+);.*/\1/" > names.txt
+paste ids.txt names.txt | uniq > processed/B.LAN_annotation.txt
+rm ids.txt names.txt
 ```

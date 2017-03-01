@@ -83,3 +83,13 @@ subread-buildindex -o hg38_cas9 ../sequences/misc/pHR-SFFV-dCas9-BFP-KRAB.fa \
 
 See `/lustre/jmlab/lun01/Odom/lncRNA_mitosis` for more details.
 
+## Genome builds for Elia Benito-Gutierrez's lancelet project.
+
+This builds an index from the lancelet draft genome.
+
+```sh
+bsub -J builder -R "rusage[mem=10000]" \
+    subread-buildindex ../B.LAN_REFERENCE/Bl71nemr.fa -o BL71
+```
+
+See `/lustre/jmlab/lun01/Benito-Gutierrez/devstage` for more details.

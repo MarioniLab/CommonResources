@@ -14,3 +14,9 @@
 *.reads
 *.log
 
+# Folders
+genomes/10X/tc1/
+genomes/sequences/B.LAN_REFERENCE/
+genomes/sequences/misc/
+genomes/sequences/spikes/
+annotation/processed/
