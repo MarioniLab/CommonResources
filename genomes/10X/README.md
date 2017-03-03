@@ -18,3 +18,15 @@ bsub -R "rusage[mem=32000]" -n 4 -e "tc1.err" -o "tc1.out" \
     /home/mib-cri/software/10Xgenomics/cellranger-1.2.0/cellranger mkref \
     --nthreads=4 --genome=tc1 --fasta=tc1.fa --genes=tc1.gtf 
 ```
+
+## Generating a _Xenopus laevis_ package for Elia Benito-Gutierrez's project
+
+Building the _X. laevis_ genome, using a processed GTF file.
+
+```sh
+bsub -R "rusage[mem=32000]" -n 4 -e "xla.err" -o "xla.out" \
+    /home/mib-cri/software/10Xgenomics/cellranger-1.2.0/cellranger mkref \
+    --nthreads=4 --genome=xla \
+    --fasta=/lustre/reference_data/mib-cri/reference_genomes/xenopus_laevis/JGI_9.1/fasta/xla.JGI_9.1.fa \
+    --genes=/lustre/jmlab/resources/annotation/processed/XL_9.1_v1.8.3.2.gtf
+```
