@@ -1,6 +1,6 @@
 # Annotation 
 *.gtf
-*.gff3
+*.gz
 *.out
 *.embl
 
@@ -17,6 +17,8 @@
 
 # Folders
 genomes/10X/tc1/
+genomes/10X/xla/
+
 genomes/sequences/B.LAN_REFERENCE/
 genomes/sequences/misc/
 genomes/sequences/spikes/

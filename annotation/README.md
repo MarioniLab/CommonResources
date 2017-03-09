@@ -81,6 +81,7 @@ stripped$Name <- stripped$longest <- stripped$ID <- stripped$Parent <- NULL
 m <- match(as.character(stripped$transcript_id), as.character(genes$ID))
 stopifnot(all(!is.na(m)))
 stripped$gene_id <- as.character(genes$Parent)[m]
+stripped$gene_name <- as.character(genes$Name)[m]
 export(stripped, con="processed/XL_9.1_v1.8.3.2.gtf")
 
 # Mapping gene IDs to gene names.
