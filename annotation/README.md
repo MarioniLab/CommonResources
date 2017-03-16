@@ -12,6 +12,7 @@ cas9_pHR_approx |   manually constructed by examining Cas9-coding domain in http
 repeats/hg38.fa.out |	http://www.repeatmasker.org/species/hg.html
 B.LAN_REFERENCE/*.gtf	|	supplied by Elia Benito-Gutierrez, via the EBI servers (Dec 16, 2016)
 XL_9.1_v1.8.3.2.allTranscripts.gff3.gz  |   ftp://ftp.xenbase.org/pub/Genomics/JGI/Xenla9.1/1.8.3.2/
+ZIKV_H.sapiens_Brazil_PE243_2015-1.gtf  |   manually constructed as containing the entire Zika genome
 
 # Processing Ensembl annotation
 
