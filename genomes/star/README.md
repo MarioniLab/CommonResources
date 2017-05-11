@@ -10,3 +10,11 @@ bsub -R "rusage[mem=40000]" -n 4 -o log.out -e log.err STAR --runMode genomeGene
     --genomeFastaFiles /lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa ../sequences/misc/ZIKV_H.sapiens_Brazil_PE243_2015-1.fa \
     --sjdbGTFfile temp/combined.gtf --sjdbOverhang 100
 ```
+
+Builds using non-coding RNAs (need `--genomeSAindexNbases` to avoid index bug).
+
+```{r}
+mkdir hs_ncRNAs
+bsub -R "rusage[mem=40000]" -n 4 -o log.out -e log.err STAR --runMode genomeGenerate --runThreadN 4 --genomeDir hs_ncRNAs \
+     --genomeFastaFiles ../sequences/misc/hs_ncRNAs.fa --genomeSAindexNbases 5
+```
