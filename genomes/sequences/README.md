@@ -12,4 +12,4 @@ repeats/RepeatMaskerLib.embl    |	http://www.girinst.org/server/RepBase/protecte
 misc/pHR-SFFV-dCas9-BFP-KRAB.fa |	https://www.addgene.org/46911/
 B.LAN_REFERENCE	|	supplied by Elia Benito-Gutierrez, via the EBI servers (Dec 16, 2016)
 misc/ZIKV_H.sapiens_Brazil_PE243_2015-1.fa   |   supplied by Omer Ziv (Mar 13, 2017)
-misc/hs_ncRNA.fa    |   supplied by Omer Ziv (May 10, 2017)
+misc/hs_ncRNA.fa    |   supplied by Omer Ziv (May 10, 2017), with extra modifications (May 13, 2017)
