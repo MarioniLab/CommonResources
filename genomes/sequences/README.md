@@ -4,6 +4,8 @@ __File__ | __Source__
 --- | ---
 hg38    |	/lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa
 mm10    |	/lustre/reference_data/mib-cri/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa
+Xtr JGI_4.2 |	/lustre/reference_data/mib-cri/reference_genomes/xenopus_tropicalis/JGI_4.2/fasta/xtr.JGI_4.2.fa
+Xla JGI_9.1 |   /lustre/reference_data/mib-cri/reference_genomes/xenopus_laevis/JGI_9.1/fasta/xla.JGI_9.1.fa
 spikes/ERCC |	https://www.thermofisher.com/order/catalog/product/4456739
 spikes/SIRV |   https://www.lexogen.com/wp-content/uploads/2015/08/SIRV_Sequences_150601.zip
 misc/CBFB-MYH11-mcherry |   supplied by Fernando Calero, CIMR (Jan 21, 2016)

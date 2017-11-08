@@ -14,6 +14,7 @@ cas9_pHR_approx |   manually constructed by examining Cas9-coding domain in http
 repeats/hg38.fa.out |	http://www.repeatmasker.org/species/hg.html
 B.LAN_REFERENCE/*.gtf	|	supplied by Elia Benito-Gutierrez, via the EBI servers (Dec 16, 2016)
 XL_9.1_v1.8.3.2.allTranscripts.gff3.gz  |   ftp://ftp.xenbase.org/pub/Genomics/JGI/Xenla9.1/1.8.3.2/
+Xenopus_tropicalis.JGI_4.2.90.gtf.gz    |   ftp://ftp.ensembl.org/pub/release-90/gtf/xenopus_tropicalis/Xenopus_tropicalis.JGI_4.2.90.gtf.gz
 ZIKV_H.sapiens_Brazil_PE243_2015-1.gtf  |   manually constructed as containing the entire Zika genome
 
 # Processing Ensembl annotation
@@ -40,6 +41,13 @@ zcat original/Homo_sapiens.GRCh38.90.gtf.gz | \
 ```
 
 You can check proper naming of the chromosomes with `cut -f1 | uniq -c`.
+
+There is no need for chromosomal name conversion with _Xenopus tropicalis_, but we do need to keep exons and to unzip the file.
+
+```{r}
+zcat original/Xenopus_tropicalis.JGI_4.2.90.gtf.gz | \
+    awk '$3 == "exon"' > processed/Xenopus_tropicalis.JGI_4.2.90.gtf
+```
 
 # Converting RepeatMasker output to GTF
 

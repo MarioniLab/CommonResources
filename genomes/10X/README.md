@@ -30,3 +30,14 @@ bsub -R "rusage[mem=32000]" -n 4 -e "xla.err" -o "xla.out" \
     --fasta=/lustre/reference_data/mib-cri/reference_genomes/xenopus_laevis/JGI_9.1/fasta/xla.JGI_9.1.fa \
     --genes=/lustre/jmlab/resources/annotation/processed/XL_9.1_v1.8.3.2.gtf
 ```
+
+Building the _X. tropicalis_ genome, to use instead of _laevis_ (trading off some bias for a more reliable build).
+
+```sh
+bsub -R "rusage[mem=32000]" -n 4 -e "xtr.err" -o "xtr.out" \
+    /home/mib-cri/software/10Xgenomics/cellranger-1.2.0/cellranger mkref \
+    --nthreads=4 --genome=xtr \
+    --fasta=/lustre/reference_data/mib-cri/reference_genomes/xenopus_tropicalis/JGI_4.2/fasta/xtr.JGI_4.2.fa \
+    --genes=/lustre/jmlab/resources/annotation/processed/xtr4.2.gtf
+```
+
