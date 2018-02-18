@@ -4,6 +4,7 @@ __File__ | __Source__
 --- | ---
 hg38    |	/lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa
 mm10    |	/lustre/reference_data/mib-cri/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa
+Sce R64-1-1 |	/lustre/reference_data/mib-cri/reference_genomes/saccharomyces_cerevisiae/R64-1-1/fasta/sce.R64-1-1.fa
 Xtr JGI_4.2 |	/lustre/reference_data/mib-cri/reference_genomes/xenopus_tropicalis/JGI_4.2/fasta/xtr.JGI_4.2.fa
 Xla JGI_9.1 |   /lustre/reference_data/mib-cri/reference_genomes/xenopus_laevis/JGI_9.1/fasta/xla.JGI_9.1.fa
 spikes/ERCC |	https://www.thermofisher.com/order/catalog/product/4456739
