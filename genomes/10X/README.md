@@ -41,3 +41,18 @@ bsub -R "rusage[mem=32000]" -n 4 -e "xtr.err" -o "xtr.out" \
     --genes=/lustre/jmlab/resources/annotation/processed/xtr4.2.gtf
 ```
 
+## Generating an Amphioxus package for Elia Benito-Gutierrez
+
+```sh
+#!/bin/bash
+#SBATCH -n 4 
+#SBATCH --mem 16000 
+#SBATCH -e blan.err 
+#SBATCH -o blan.out
+/Users/bioinformatics/software/cellranger/cellranger-2.1.0/cellranger mkref \
+    --nthreads=4 --genome=blan \
+    --fasta=/scratchb/jmlab/resources/genomes/sequences/B.LAN_REFERENCE/Bl71nemr.fa \
+    --genes=/scratchb/jmlab/resources/annotation/processed/B.LAN_exons.gtf
+```
+
+

@@ -67,6 +67,9 @@ cat ${host} | cut -f9 | sed -r "s/.*gene_id ([^;]+);.*/\1/" > ids.txt
 cat ${host} | cut -f9 | sed -r "s/.*gene_name ([^;]+);.*/\1/" > names.txt
 paste ids.txt names.txt | uniq > processed/B.LAN_annotation.txt
 rm ids.txt names.txt
+
+# We also extract the exons for use in GTF files.
+cat ${host} | awk '{if ($3 == "exon") print $0; }' > processed/B.LAN_exons.gtf
 ```
 
 # Processing _Xenopus laevis_ annotations
