@@ -3,14 +3,17 @@
 __Type__ | __Source__
 --- | ---
 ERCC92  |   http://www.thermofisher.com/order/catalog/product/4456739
-Homo_sapiens.GRCh37.75.gtf  |	http://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/
-Homo_sapiens.GRCh38.83.gtf  |	http://ftp.ensembl.org/pub/release-83/gtf/homo_sapiens/
-Mus_musculus.GRCm38.82.gtf  |	http://ftp.ensembl.org/pub/release-82/gtf/mus_musculus/
+Homo_sapiens.GRCh37.75.gtf.gz	|	http://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/
+Homo_sapiens.GRCh38.83.gtf.gz	|	http://ftp.ensembl.org/pub/release-83/gtf/homo_sapiens/
+Homo_sapiens.GRCh38.90.gtf.gz  	|	http://ftp.ensembl.org/pub/release-90/gtf/homo_sapiens/
+Mus_musculus.GRCm38.82.gtf.gz	|	http://ftp.ensembl.org/pub/release-82/gtf/mus_musculus/
+Mus_musculus.GRCm38.90.gtf.gz	|	http://ftp.ensembl.org/pub/release-90/gtf/mus_musculus/
 SIRV_C_150601a  |	https://www.lexogen.com/sirvs/
 cas9_pHR_approx |   manually constructed by examining Cas9-coding domain in https://www.addgene.org/46911/
 repeats/hg38.fa.out |	http://www.repeatmasker.org/species/hg.html
 B.LAN_REFERENCE/*.gtf	|	supplied by Elia Benito-Gutierrez, via the EBI servers (Dec 16, 2016)
 XL_9.1_v1.8.3.2.allTranscripts.gff3.gz  |   ftp://ftp.xenbase.org/pub/Genomics/JGI/Xenla9.1/1.8.3.2/
+Xenopus_tropicalis.JGI_4.2.90.gtf.gz    |   ftp://ftp.ensembl.org/pub/release-90/gtf/xenopus_tropicalis/Xenopus_tropicalis.JGI_4.2.90.gtf.gz
 ZIKV_H.sapiens_Brazil_PE243_2015-1.gtf  |   manually constructed as containing the entire Zika genome
 
 # Processing Ensembl annotation
@@ -21,19 +24,28 @@ Similarly, the mitochondrial chromosome is named as `MT`, which needs to be chan
 Finally, we only keep regions annotated as exons to avoid pulling down the coding region, start/stop codons, etc.
 
 ```sh
-cat original/Mus_musculus.GRCm38.82.gtf | \
+zcat original/Mus_musculus.GRCm38.90.gtf.gz | \
     sed -r "s/^([0-9MXY])/chr\1/" | \
     sed "s/^chrMT/chrM/g" | \
-    awk '$3 == "exon"' > processed/mm10.gtf
+    awk '$3 == "exon"' > processed/Mus_musculus.GRCm38.90.gtf
 ```
 
 We do the same for hg38.
 
 ```sh
-cat original/Homo_sapiens.GRCh38.83.gtf | \
+zcat original/Homo_sapiens.GRCh38.90.gtf.gz | \
     sed -r "s/^([0-9MXY])/chr\1/" | \
     sed "s/^chrMT/chrM/g" | \
-    awk '$3 == "exon"' > processed/hg38.gtf
+    awk '$3 == "exon"' > processed/Homo_sapiens.GRCh38.90.gtf
+```
+
+You can check proper naming of the chromosomes with `cut -f1 | uniq -c`.
+
+There is no need for chromosomal name conversion with _Xenopus tropicalis_, but we do need to keep exons and to unzip the file.
+
+```{r}
+zcat original/Xenopus_tropicalis.JGI_4.2.90.gtf.gz | \
+    awk '$3 == "exon"' > processed/Xenopus_tropicalis.JGI_4.2.90.gtf
 ```
 
 # Converting RepeatMasker output to GTF
@@ -54,6 +66,9 @@ cat ${host} | cut -f9 | sed -r "s/.*gene_id ([^;]+);.*/\1/" > ids.txt
 cat ${host} | cut -f9 | sed -r "s/.*gene_name ([^;]+);.*/\1/" > names.txt
 paste ids.txt names.txt | uniq > processed/B.LAN_annotation.txt
 rm ids.txt names.txt
+
+# We also extract the exons for use in GTF files.
+cat ${host} | awk '{if ($3 == "exon") print $0; }' > processed/B.LAN_exons.gtf
 ```
 
 # Processing _Xenopus laevis_ annotations

@@ -66,3 +66,15 @@ bsub -J builder -R "rusage[mem=10000]" \
 ```
 
 See `/lustre/jmlab/lun01/Benito-Gutierrez/devstage` for more details.
+
+## Genome builds for Cut-and-run analysis
+
+This builds an index from hg38 with spike-ins from yeast.
+
+```sh
+bsub -J builder -R "rusage[mem=10000]" \
+    subread-buildindex -o hg38_yeast \
+    /lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa \
+    /lustre/reference_data/mib-cri/reference_genomes/saccharomyces_cerevisiae/R64-1-1/fasta/sce.R64-1-1.fa
+```
+
