@@ -3,7 +3,6 @@
 __Type__ | __Source__
 --- | ---
 ERCC92  |   http://www.thermofisher.com/order/catalog/product/4456739
-CBFB-MYH11-mcherry  |   manually constructed, based on information from Fernando Calero
 Homo_sapiens.GRCh37.75.gtf  |	http://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/
 Homo_sapiens.GRCh38.83.gtf  |	http://ftp.ensembl.org/pub/release-83/gtf/homo_sapiens/
 Mus_musculus.GRCm38.82.gtf  |	http://ftp.ensembl.org/pub/release-82/gtf/mus_musculus/

@@ -1,7 +1,5 @@
 # Generating subread indices
 
-## Common index combinations
-
 Mouse mm10 genome by itself:
 
 ```sh
@@ -25,31 +23,6 @@ Human hg38 genome with ERCC spike-ins:
 ```sh
 subread-buildindex -o hg38_ERCC /lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa ../sequences/spikes/ERCC92.fa
 ```
-
-## Genome builds for the spike-in project with Fernando Calero
-
-This combines mm10 with both the ERCC and SIRV spike-ins:
-
-```sh
-subread-buildindex -o mm10_ERCC_SIRV /lustre/reference_data/mib-cri/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa \
-        ../sequences/spikes/ERCC92.fa ../sequences/spikes/SIRV_150601a.fasta 
-```
-
-... and an extra induced oncogene:
-
-```sh
-subread-buildindex -o mm10_ERCC_SIRV_onco /lustre/reference_data/mib-cri/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa \
-	../sequences/spikes/ERCC92.fa ../sequences/spikes/SIRV_150601a.fasta ../sequences/misc/CBFB-MYH11-mcherry.fa
-```
-
-Also building indices for the spike-ins by themselves, to assess specificity:
-
-```sh
-subread-buildindex -o ERCC ../sequences/spikes/ERCC92.fa 
-subread-buildindex -o SIRV ../sequences/spikes/SIRV_150601a.fasta
-```
-
-See `/lustre/jmlab/lun01/SpikeIns` for more details.
 
 ## Genome builds for Celia Martinez's tc1 project
 
