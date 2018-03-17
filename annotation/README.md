@@ -9,7 +9,6 @@ Homo_sapiens.GRCh38.90.gtf.gz  	|	http://ftp.ensembl.org/pub/release-90/gtf/homo
 Mus_musculus.GRCm38.82.gtf.gz	|	http://ftp.ensembl.org/pub/release-82/gtf/mus_musculus/
 Mus_musculus.GRCm38.90.gtf.gz	|	http://ftp.ensembl.org/pub/release-90/gtf/mus_musculus/
 SIRV_C_150601a  |	https://www.lexogen.com/sirvs/
-cas9_pHR_approx |   manually constructed by examining Cas9-coding domain in https://www.addgene.org/46911/
 repeats/hg38.fa.out |	http://www.repeatmasker.org/species/hg.html
 B.LAN_REFERENCE/*.gtf	|	supplied by Elia Benito-Gutierrez, via the EBI servers (Dec 16, 2016)
 XL_9.1_v1.8.3.2.allTranscripts.gff3.gz  |   ftp://ftp.xenbase.org/pub/Genomics/JGI/Xenla9.1/1.8.3.2/

@@ -45,17 +45,6 @@ subread-buildindex -o RepeatMasker ../sequences/repeats/RepeatMaskerLib.fasta
 
 See `/lustre/jmlab/lun01/Lehner/HUSH_repeats` for more details.
 
-## Genome builds for Lovorka Stojic's lncRNA project
-
-This combines the hg38 genome with a plasmid sequence expressing dCas9-KRAB.
-
-```sh
-subread-buildindex -o hg38_cas9 ../sequences/misc/pHR-SFFV-dCas9-BFP-KRAB.fa \
-    /lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa
-```
-
-See `/lustre/jmlab/lun01/Odom/lncRNA_mitosis` for more details.
-
 ## Genome builds for Elia Benito-Gutierrez's lancelet project.
 
 This builds an index from the lancelet draft genome.
