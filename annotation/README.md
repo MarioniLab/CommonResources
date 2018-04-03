@@ -3,11 +3,8 @@
 __Type__ | __Source__
 --- | ---
 ERCC92  |   http://www.thermofisher.com/order/catalog/product/4456739
-Homo_sapiens.GRCh37.75.gtf.gz	|	http://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/
-Homo_sapiens.GRCh38.83.gtf.gz	|	http://ftp.ensembl.org/pub/release-83/gtf/homo_sapiens/
-Homo_sapiens.GRCh38.90.gtf.gz  	|	http://ftp.ensembl.org/pub/release-90/gtf/homo_sapiens/
-Mus_musculus.GRCm38.82.gtf.gz	|	http://ftp.ensembl.org/pub/release-82/gtf/mus_musculus/
-Mus_musculus.GRCm38.90.gtf.gz	|	http://ftp.ensembl.org/pub/release-90/gtf/mus_musculus/
+Homo_sapiens.GRCh38.91.gtf.gz  	|	http://ftp.ensembl.org/pub/release-91/gtf/homo_sapiens/
+Mus_musculus.GRCm38.91.gtf.gz	|	http://ftp.ensembl.org/pub/release-91/gtf/mus_musculus/
 SIRV_C_150601a  |	https://www.lexogen.com/sirvs/
 repeats/hg38.fa.out |	http://www.repeatmasker.org/species/hg.html
 B.LAN_REFERENCE/*.gtf	|	supplied by Elia Benito-Gutierrez, via the EBI servers (Dec 16, 2016)
@@ -23,19 +20,19 @@ Similarly, the mitochondrial chromosome is named as `MT`, which needs to be chan
 Finally, we only keep regions annotated as exons to avoid pulling down the coding region, start/stop codons, etc.
 
 ```sh
-zcat original/Mus_musculus.GRCm38.90.gtf.gz | \
+zcat original/Mus_musculus.GRCm38.91.gtf.gz | \
     sed -r "s/^([0-9MXY])/chr\1/" | \
     sed "s/^chrMT/chrM/g" | \
-    awk '$3 == "exon"' > processed/Mus_musculus.GRCm38.90.gtf
+    awk '$3 == "exon"' > processed/Mus_musculus.GRCm38.91.gtf
 ```
 
 We do the same for hg38.
 
 ```sh
-zcat original/Homo_sapiens.GRCh38.90.gtf.gz | \
+zcat original/Homo_sapiens.GRCh38.91.gtf.gz | \
     sed -r "s/^([0-9MXY])/chr\1/" | \
     sed "s/^chrMT/chrM/g" | \
-    awk '$3 == "exon"' > processed/Homo_sapiens.GRCh38.90.gtf
+    awk '$3 == "exon"' > processed/Homo_sapiens.GRCh38.91.gtf
 ```
 
 You can check proper naming of the chromosomes with `cut -f1 | uniq -c`.
