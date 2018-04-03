@@ -18,8 +18,8 @@ Mouse mm10 genome with ERCC spike-ins:
 ```sh
 sbatch << EOT
 #!/bin/bash
-#SBATCH -o log.mm10.out
-#SBATCH -e log.mm10.err
+#SBATCH -o log.mm10_ERCC.out
+#SBATCH -e log.mm10_ERCC.err
 #SBATCH -n 1
 #SBATCH --mem 16000
 subread-buildindex -o mm10_ERCC /scratchb/bioinformatics/reference_data/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa ../sequences/spikes/ERCC92.fa
@@ -35,7 +35,14 @@ subread-buildindex -o hg38 /lustre/reference_data/mib-cri/reference_genomes/homo
 Human hg38 genome with ERCC spike-ins:
 
 ```sh
-subread-buildindex -o hg38_ERCC /lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa ../sequences/spikes/ERCC92.fa
+sbatch << EOT
+#!/bin/bash
+#SBATCH -o log.hg38_ERCC.out
+#SBATCH -e log.hg38_ERCC.err
+#SBATCH -n 1
+#SBATCH --mem 16000
+subread-buildindex -o hg38_ERCC /scratchb/bioinformatics/reference_data/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa ../sequences/spikes/ERCC92.fa
+EOT
 ```
 
 ## Genome builds for Celia Martinez's tc1 project
