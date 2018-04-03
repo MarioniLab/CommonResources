@@ -3,13 +3,27 @@
 Mouse mm10 genome by itself:
 
 ```sh
-subread-buildindex -o mm10 /lustre/reference_data/mib-cri/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa
+sbatch << EOT
+#!/bin/bash
+#SBATCH -o log.mm10.out
+#SBATCH -e log.mm10.err
+#SBATCH -n 1
+#SBATCH --mem 16000
+subread-buildindex -o mm10 /scratchb/bioinformatics/reference_data/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa
+EOT
 ```
 
 Mouse mm10 genome with ERCC spike-ins:
 
 ```sh
-subread-buildindex -o mm10_ERCC /lustre/reference_data/mib-cri/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa ../sequences/spikes/ERCC92.fa
+sbatch << EOT
+#!/bin/bash
+#SBATCH -o log.mm10.out
+#SBATCH -e log.mm10.err
+#SBATCH -n 1
+#SBATCH --mem 16000
+subread-buildindex -o mm10_ERCC /scratchb/bioinformatics/reference_data/reference_genomes/mus_musculus/mm10/fasta/mmu.mm10.fa ../sequences/spikes/ERCC92.fa
+EOT
 ```
 
 Human hg38 genome by itself:
