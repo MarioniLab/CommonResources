@@ -29,7 +29,14 @@ EOT
 Human hg38 genome by itself:
 
 ```sh
-subread-buildindex -o hg38 /lustre/reference_data/mib-cri/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa
+sbatch << EOT
+#!/bin/bash
+#SBATCH -o log.hg38.out
+#SBATCH -e log.hg38.err
+#SBATCH -n 1
+#SBATCH --mem 16000
+subread-buildindex -o hg38 /scratchb/bioinformatics/reference_data/reference_genomes/homo_sapiens/hg38/fasta/hsa.hg38.fa
+EOT
 ```
 
 Human hg38 genome with ERCC spike-ins:
