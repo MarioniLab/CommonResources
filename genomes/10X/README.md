@@ -54,7 +54,7 @@ bsub -R "rusage[mem=32000]" -n 4 -e "xtr.err" -o "xtr.out" \
     --fasta=/scratchb/jmlab/resources/genomes/sequences/B.LAN_REFERENCE/Bl71nemr.fa \
     --genes=/scratchb/jmlab/resources/annotation/processed/B.LAN_exons.gtf
 ```
-## Generating a mus musculus package from the Ensemble 
+## Generating a mus musculus package from GRCm38 genome build
 
 ```sh
 #! /usr/bin/bash
