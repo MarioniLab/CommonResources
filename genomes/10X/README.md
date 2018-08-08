@@ -54,5 +54,17 @@ bsub -R "rusage[mem=32000]" -n 4 -e "xtr.err" -o "xtr.out" \
     --fasta=/scratchb/jmlab/resources/genomes/sequences/B.LAN_REFERENCE/Bl71nemr.fa \
     --genes=/scratchb/jmlab/resources/annotation/processed/B.LAN_exons.gtf
 ```
+## Generating a _Mus musculus_ package from GRCm38 genome build
 
+```sh
+#! /usr/bin/bash
+#SBATCH -N1
+#SBATCH --error=/mnt/scratcha/jmlab/eling01/Jack/logs/genome_indexing.stderr
+#SBATCH --job-name=mmu_genome_indexing
+#SBATCH --mem=64000
+/Users/bioinformatics/software/cellranger/cellranger-2.1.0/cellranger mkref \
+	 --genome=GRCm38 \
+	 --fasta=/scratchb/bioinformatics/reference_data/reference_genomes/mus_musculus/GRCm38/fasta/Mus_musculus.GRCm38.dna_sm.primary_assembly.fa \
+	 --genes=/scratchb/bioinformatics/reference_data/reference_genomes/mus_musculus/GRCm38/annotation/Mus_musculus.GRCm38.80.gtf
+```
 
